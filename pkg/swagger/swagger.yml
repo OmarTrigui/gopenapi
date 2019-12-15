@@ -36,9 +36,9 @@ paths:
             required: true
             description: The length of the requested string.
         responses:
-          200:
+          '200':
             description: Returns the randomly generated string.
             schema:
               type: string
-          400:
+          '400':
             description: Invalid length was provided.
