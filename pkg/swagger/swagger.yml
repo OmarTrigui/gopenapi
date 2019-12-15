@@ -1,0 +1,44 @@
+consumes:
+- application/json
+info:
+  description: HTTP server in Go with Swagger endpoints definition
+  title: gopenapi
+  version: 0.1.0
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
+
+paths:
+  /healthz:
+    get:
+      operationId: checkHealth
+      produces:
+      - text/plain
+      responses:
+        '200':
+          description: OK message
+          schema:
+            type: string
+            enum:
+            - OK
+
+  /random/string:
+      get:
+        description: Returns a random string with a length between 0 and 500 !
+        parameters:
+          - name: length
+            in: query
+            type: integer
+            minimum: 0
+            maximum: 500
+            required: true
+            description: The length of the requested string.
+        responses:
+          200:
+            description: Returns the randomly generated string.
+            schema:
+              type: string
+          400:
+            description: Invalid length was provided.
