@@ -11,7 +11,7 @@ Install Go in 1.13 version minimum.
 
 ## Build the app
 
-`$ go build -o bin/opentest internal/main.go`
+`$ go build -o bin/gopenapi internal/main.go`
 
 or
 
@@ -19,7 +19,7 @@ or
 
 ## Run the app
 
-`$ ./bin/opentest`
+`$ ./bin/gopenapi`
 
 ## Test the app
 
