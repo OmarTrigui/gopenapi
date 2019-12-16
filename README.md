@@ -28,7 +28,9 @@ $ curl http://localhost:8080/api/v2/healthz
 OK
 
 $ curl http://localhost:8080/api/v2/random/string?length=50
-"oyItTSUaQkYcWAi75XIZhtyIiWhHY7lajXSc5alIx4NfxixU32"
+{
+    result: "ciHWcHmvllC0u3igjneNEIDkQ8TyzOj6pQfF5TbsAX5dJIcaAE"
+}
 ```
 
 ## Generate swagger files
