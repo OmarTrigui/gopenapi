@@ -24,10 +24,10 @@ or
 ## Test the app
 
 ```
-$ curl http://localhost:8080/healthz
+$ curl http://localhost:8080/api/v2/healthz
 OK
 
-$ curl http://localhost:8080/random/string?length=50
+$ curl http://localhost:8080/api/v2/random/string?length=50
 "oyItTSUaQkYcWAi75XIZhtyIiWhHY7lajXSc5alIx4NfxixU32"
 ```
 
