@@ -9,6 +9,7 @@ produces:
 schemes:
 - http
 swagger: "2.0"
+basePath: /api/v2
 
 paths:
   /healthz:
@@ -17,7 +18,7 @@ paths:
       produces:
       - text/plain
       responses:
-        '200':
+        200:
           description: OK message
           schema:
             type: string
@@ -36,9 +37,9 @@ paths:
             required: true
             description: The length of the requested string.
         responses:
-          '200':
+          200:
             description: Returns the randomly generated string.
             schema:
               type: string
-          '400':
+          400:
             description: Invalid length was provided.

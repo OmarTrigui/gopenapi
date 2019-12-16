@@ -44,6 +44,9 @@ func (o *GetRandomStringURL) Build() (*url.URL, error) {
 	var _path = "/random/string"
 
 	_basePath := o._basePath
+	if _basePath == "" {
+		_basePath = "/api/v2"
+	}
 	_result.Path = golangswaggerpaths.Join(_basePath, _path)
 
 	qs := make(url.Values)

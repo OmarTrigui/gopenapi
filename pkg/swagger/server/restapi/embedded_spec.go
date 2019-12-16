@@ -33,6 +33,7 @@ func init() {
     "title": "gopenapi",
     "version": "0.1.0"
   },
+  "basePath": "/api/v2",
   "paths": {
     "/healthz": {
       "get": {
@@ -97,6 +98,7 @@ func init() {
     "title": "gopenapi",
     "version": "0.1.0"
   },
+  "basePath": "/api/v2",
   "paths": {
     "/healthz": {
       "get": {
