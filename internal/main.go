@@ -60,5 +60,7 @@ func GetRandomString(randomString operations.GetRandomStringParams) middleware.R
 		b[i] = charset[seededRand.Intn(len(charset))]
 	}
 
-	return operations.NewGetRandomStringOK().WithPayload(string(b))
+	payload := operations.GetRandomStringOKBody{Result: string(b)}
+
+	return operations.NewGetRandomStringOK().WithPayload(&payload)
 }

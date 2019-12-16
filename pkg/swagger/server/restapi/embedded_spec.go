@@ -71,7 +71,13 @@ func init() {
           "200": {
             "description": "Returns the randomly generated string.",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "result": {
+                  "description": "Randomly generated string",
+                  "type": "string"
+                }
+              }
             }
           },
           "400": {
@@ -137,7 +143,13 @@ func init() {
           "200": {
             "description": "Returns the randomly generated string.",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "result": {
+                  "description": "Randomly generated string",
+                  "type": "string"
+                }
+              }
             }
           },
           "400": {

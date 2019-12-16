@@ -40,6 +40,10 @@ paths:
           200:
             description: Returns the randomly generated string.
             schema:
-              type: string
+              type: object
+              properties:
+                result:
+                  type: string
+                  description: Randomly generated string     
           400:
             description: Invalid length was provided.

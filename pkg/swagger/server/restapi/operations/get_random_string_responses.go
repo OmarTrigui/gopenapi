@@ -23,7 +23,7 @@ type GetRandomStringOK struct {
 	/*
 	  In: Body
 	*/
-	Payload string `json:"body,omitempty"`
+	Payload *GetRandomStringOKBody `json:"body,omitempty"`
 }
 
 // NewGetRandomStringOK creates GetRandomStringOK with default headers values
@@ -33,13 +33,13 @@ func NewGetRandomStringOK() *GetRandomStringOK {
 }
 
 // WithPayload adds the payload to the get random string o k response
-func (o *GetRandomStringOK) WithPayload(payload string) *GetRandomStringOK {
+func (o *GetRandomStringOK) WithPayload(payload *GetRandomStringOKBody) *GetRandomStringOK {
 	o.Payload = payload
 	return o
 }
 
 // SetPayload sets the payload to the get random string o k response
-func (o *GetRandomStringOK) SetPayload(payload string) {
+func (o *GetRandomStringOK) SetPayload(payload *GetRandomStringOKBody) {
 	o.Payload = payload
 }
 
@@ -47,9 +47,11 @@ func (o *GetRandomStringOK) SetPayload(payload string) {
 func (o *GetRandomStringOK) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
 
 	rw.WriteHeader(200)
-	payload := o.Payload
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
+	if o.Payload != nil {
+		payload := o.Payload
+		if err := producer.Produce(rw, payload); err != nil {
+			panic(err) // let the recovery middleware deal with this
+		}
 	}
 }
 
