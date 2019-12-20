@@ -54,9 +54,9 @@ func init() {
         }
       }
     },
-    "/random/string": {
+    "/passwords/generateRandom": {
       "get": {
-        "description": "Returns a random string with a length between 0 and 500 !",
+        "description": "Returns a random password with a length between 0 and 500 !",
         "parameters": [
           {
             "maximum": 500,
@@ -69,11 +69,11 @@ func init() {
         ],
         "responses": {
           "200": {
-            "description": "Returns the randomly generated string.",
+            "description": "Returns the randomly generated password.",
             "schema": {
               "type": "object",
               "properties": {
-                "result": {
+                "password": {
                   "description": "Randomly generated string",
                   "type": "string"
                 }
@@ -125,9 +125,9 @@ func init() {
         }
       }
     },
-    "/random/string": {
+    "/passwords/generateRandom": {
       "get": {
-        "description": "Returns a random string with a length between 0 and 500 !",
+        "description": "Returns a random password with a length between 0 and 500 !",
         "parameters": [
           {
             "maximum": 500,
@@ -141,11 +141,11 @@ func init() {
         ],
         "responses": {
           "200": {
-            "description": "Returns the randomly generated string.",
+            "description": "Returns the randomly generated password.",
             "schema": {
               "type": "object",
               "properties": {
-                "result": {
+                "password": {
                   "description": "Randomly generated string",
                   "type": "string"
                 }

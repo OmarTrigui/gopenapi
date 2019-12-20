@@ -13,8 +13,8 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// GetRandomStringURL generates an URL for the get random string operation
-type GetRandomStringURL struct {
+// GetPasswordsGenerateRandomURL generates an URL for the get passwords generate random operation
+type GetPasswordsGenerateRandomURL struct {
 	Length int64
 
 	_basePath string
@@ -25,7 +25,7 @@ type GetRandomStringURL struct {
 // WithBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetRandomStringURL) WithBasePath(bp string) *GetRandomStringURL {
+func (o *GetPasswordsGenerateRandomURL) WithBasePath(bp string) *GetPasswordsGenerateRandomURL {
 	o.SetBasePath(bp)
 	return o
 }
@@ -33,15 +33,15 @@ func (o *GetRandomStringURL) WithBasePath(bp string) *GetRandomStringURL {
 // SetBasePath sets the base path for this url builder, only required when it's different from the
 // base path specified in the swagger spec.
 // When the value of the base path is an empty string
-func (o *GetRandomStringURL) SetBasePath(bp string) {
+func (o *GetPasswordsGenerateRandomURL) SetBasePath(bp string) {
 	o._basePath = bp
 }
 
 // Build a url path and query string
-func (o *GetRandomStringURL) Build() (*url.URL, error) {
+func (o *GetPasswordsGenerateRandomURL) Build() (*url.URL, error) {
 	var _result url.URL
 
-	var _path = "/random/string"
+	var _path = "/passwords/generateRandom"
 
 	_basePath := o._basePath
 	if _basePath == "" {
@@ -62,7 +62,7 @@ func (o *GetRandomStringURL) Build() (*url.URL, error) {
 }
 
 // Must is a helper function to panic when the url builder returns an error
-func (o *GetRandomStringURL) Must(u *url.URL, err error) *url.URL {
+func (o *GetPasswordsGenerateRandomURL) Must(u *url.URL, err error) *url.URL {
 	if err != nil {
 		panic(err)
 	}
@@ -73,17 +73,17 @@ func (o *GetRandomStringURL) Must(u *url.URL, err error) *url.URL {
 }
 
 // String returns the string representation of the path with query string
-func (o *GetRandomStringURL) String() string {
+func (o *GetPasswordsGenerateRandomURL) String() string {
 	return o.Must(o.Build()).String()
 }
 
 // BuildFull builds a full url with scheme, host, path and query string
-func (o *GetRandomStringURL) BuildFull(scheme, host string) (*url.URL, error) {
+func (o *GetPasswordsGenerateRandomURL) BuildFull(scheme, host string) (*url.URL, error) {
 	if scheme == "" {
-		return nil, errors.New("scheme is required for a full url on GetRandomStringURL")
+		return nil, errors.New("scheme is required for a full url on GetPasswordsGenerateRandomURL")
 	}
 	if host == "" {
-		return nil, errors.New("host is required for a full url on GetRandomStringURL")
+		return nil, errors.New("host is required for a full url on GetPasswordsGenerateRandomURL")
 	}
 
 	base, err := o.Build()
@@ -97,6 +97,6 @@ func (o *GetRandomStringURL) BuildFull(scheme, host string) (*url.URL, error) {
 }
 
 // StringFull returns the string representation of a complete url
-func (o *GetRandomStringURL) StringFull(scheme, host string) string {
+func (o *GetPasswordsGenerateRandomURL) StringFull(scheme, host string) string {
 	return o.Must(o.BuildFull(scheme, host)).String()
 }

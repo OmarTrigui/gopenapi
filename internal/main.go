@@ -35,8 +35,8 @@ func main() {
 	// Implement the CheckHealth handler
 	api.CheckHealthHandler = operations.CheckHealthHandlerFunc(Health)
 
-	// Implement the GetRandomStringHandler handler
-	api.GetRandomStringHandler = operations.GetRandomStringHandlerFunc(GetRandomString)
+	// Implement the GetPasswordsGenerateRandomHandler handler
+	api.GetPasswordsGenerateRandomHandler = operations.GetPasswordsGenerateRandomHandlerFunc(GetRandomPassword)
 
 	// Start server which listening
 	if err := server.Serve(); err != nil {
@@ -49,8 +49,8 @@ func Health(operations.CheckHealthParams) middleware.Responder {
 	return operations.NewCheckHealthOK().WithPayload("OK")
 }
 
-//GetRandomString returns a random string with a provided length
-func GetRandomString(randomString operations.GetRandomStringParams) middleware.Responder {
+//GetRandomPassword returns a random password with a specific length
+func GetRandomPassword(randomString operations.GetPasswordsGenerateRandomParams) middleware.Responder {
 
 	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -60,7 +60,7 @@ func GetRandomString(randomString operations.GetRandomStringParams) middleware.R
 		b[i] = charset[seededRand.Intn(len(charset))]
 	}
 
-	payload := operations.GetRandomStringOKBody{Result: string(b)}
+	payload := operations.GetPasswordsGenerateRandomOKBody{Password: string(b)}
 
-	return operations.NewGetRandomStringOK().WithPayload(&payload)
+	return operations.NewGetPasswordsGenerateRandomOK().WithPayload(&payload)
 }

@@ -39,8 +39,8 @@ func NewGopenapiAPI(spec *loads.Document) *GopenapiAPI {
 		JSONConsumer:        runtime.JSONConsumer(),
 		JSONProducer:        runtime.JSONProducer(),
 		TxtProducer:         runtime.TextProducer(),
-		GetRandomStringHandler: GetRandomStringHandlerFunc(func(params GetRandomStringParams) middleware.Responder {
-			return middleware.NotImplemented("operation GetRandomString has not yet been implemented")
+		GetPasswordsGenerateRandomHandler: GetPasswordsGenerateRandomHandlerFunc(func(params GetPasswordsGenerateRandomParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetPasswordsGenerateRandom has not yet been implemented")
 		}), CheckHealthHandler: CheckHealthHandlerFunc(func(params CheckHealthParams) middleware.Responder {
 			return middleware.NotImplemented("operation CheckHealth has not yet been implemented")
 		}),
@@ -78,8 +78,8 @@ type GopenapiAPI struct {
 	//   - text/plain
 	TxtProducer runtime.Producer
 
-	// GetRandomStringHandler sets the operation handler for the get random string operation
-	GetRandomStringHandler GetRandomStringHandler
+	// GetPasswordsGenerateRandomHandler sets the operation handler for the get passwords generate random operation
+	GetPasswordsGenerateRandomHandler GetPasswordsGenerateRandomHandler
 	// CheckHealthHandler sets the operation handler for the check health operation
 	CheckHealthHandler CheckHealthHandler
 
@@ -153,8 +153,8 @@ func (o *GopenapiAPI) Validate() error {
 		unregistered = append(unregistered, "TxtProducer")
 	}
 
-	if o.GetRandomStringHandler == nil {
-		unregistered = append(unregistered, "GetRandomStringHandler")
+	if o.GetPasswordsGenerateRandomHandler == nil {
+		unregistered = append(unregistered, "GetPasswordsGenerateRandomHandler")
 	}
 
 	if o.CheckHealthHandler == nil {
@@ -258,7 +258,7 @@ func (o *GopenapiAPI) initHandlerCache() {
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)
 	}
-	o.handlers["GET"]["/random/string"] = NewGetRandomString(o.context, o.GetRandomStringHandler)
+	o.handlers["GET"]["/passwords/generateRandom"] = NewGetPasswordsGenerateRandom(o.context, o.GetPasswordsGenerateRandomHandler)
 
 	if o.handlers["GET"] == nil {
 		o.handlers["GET"] = make(map[string]http.Handler)

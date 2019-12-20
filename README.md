@@ -27,9 +27,9 @@ or
 $ curl http://localhost:8080/api/v2/healthz
 OK
 
-$ curl http://localhost:8080/api/v2/random/string?length=50
+$ curl http://localhost:8080/api/v2//passwords/generateRandom?length=50
 {
-    result: "ciHWcHmvllC0u3igjneNEIDkQ8TyzOj6pQfF5TbsAX5dJIcaAE"
+    password: "ciHWcHmvllC0u3igjneNEIDkQ8TyzOj6pQfF5TbsAX5dJIcaAE"
 }
 ```
 

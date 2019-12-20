@@ -17,18 +17,18 @@ import (
 	strfmt "github.com/go-openapi/strfmt"
 )
 
-// NewGetRandomStringParams creates a new GetRandomStringParams object
+// NewGetPasswordsGenerateRandomParams creates a new GetPasswordsGenerateRandomParams object
 // no default values defined in spec.
-func NewGetRandomStringParams() GetRandomStringParams {
+func NewGetPasswordsGenerateRandomParams() GetPasswordsGenerateRandomParams {
 
-	return GetRandomStringParams{}
+	return GetPasswordsGenerateRandomParams{}
 }
 
-// GetRandomStringParams contains all the bound params for the get random string operation
+// GetPasswordsGenerateRandomParams contains all the bound params for the get passwords generate random operation
 // typically these are obtained from a http.Request
 //
-// swagger:parameters GetRandomString
-type GetRandomStringParams struct {
+// swagger:parameters GetPasswordsGenerateRandom
+type GetPasswordsGenerateRandomParams struct {
 
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -45,8 +45,8 @@ type GetRandomStringParams struct {
 // BindRequest both binds and validates a request, it assumes that complex things implement a Validatable(strfmt.Registry) error interface
 // for simple values it will use straight method calls.
 //
-// To ensure default values, the struct must have been initialized with NewGetRandomStringParams() beforehand.
-func (o *GetRandomStringParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
+// To ensure default values, the struct must have been initialized with NewGetPasswordsGenerateRandomParams() beforehand.
+func (o *GetPasswordsGenerateRandomParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
 	var res []error
 
 	o.HTTPRequest = r
@@ -65,7 +65,7 @@ func (o *GetRandomStringParams) BindRequest(r *http.Request, route *middleware.M
 }
 
 // bindLength binds and validates parameter Length from query.
-func (o *GetRandomStringParams) bindLength(rawData []string, hasKey bool, formats strfmt.Registry) error {
+func (o *GetPasswordsGenerateRandomParams) bindLength(rawData []string, hasKey bool, formats strfmt.Registry) error {
 	if !hasKey {
 		return errors.Required("length", "query")
 	}
@@ -94,7 +94,7 @@ func (o *GetRandomStringParams) bindLength(rawData []string, hasKey bool, format
 }
 
 // validateLength carries on validations for parameter Length
-func (o *GetRandomStringParams) validateLength(formats strfmt.Registry) error {
+func (o *GetPasswordsGenerateRandomParams) validateLength(formats strfmt.Registry) error {
 
 	if err := validate.MinimumInt("length", "query", int64(o.Length), 0, false); err != nil {
 		return err

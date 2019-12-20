@@ -25,9 +25,9 @@ paths:
             enum:
             - OK
 
-  /random/string:
+  /passwords/generateRandom:
       get:
-        description: Returns a random string with a length between 0 and 500 !
+        description: Returns a random password with a length between 0 and 500 !
         parameters:
           - name: length
             in: query
@@ -38,11 +38,11 @@ paths:
             description: The length of the requested string.
         responses:
           200:
-            description: Returns the randomly generated string.
+            description: Returns the randomly generated password.
             schema:
               type: object
               properties:
-                result:
+                password:
                   type: string
                   description: Randomly generated string     
           400:

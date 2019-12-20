@@ -34,9 +34,9 @@ func configureAPI(api *operations.GopenapiAPI) http.Handler {
 	api.JSONProducer = runtime.JSONProducer()
 	api.TxtProducer = runtime.TextProducer()
 
-	if api.GetRandomStringHandler == nil {
-		api.GetRandomStringHandler = operations.GetRandomStringHandlerFunc(func(params operations.GetRandomStringParams) middleware.Responder {
-			return middleware.NotImplemented("operation .GetRandomString has not yet been implemented")
+	if api.GetPasswordsGenerateRandomHandler == nil {
+		api.GetPasswordsGenerateRandomHandler = operations.GetPasswordsGenerateRandomHandlerFunc(func(params operations.GetPasswordsGenerateRandomParams) middleware.Responder {
+			return middleware.NotImplemented("operation .GetPasswordsGenerateRandom has not yet been implemented")
 		})
 	}
 	if api.CheckHealthHandler == nil {
