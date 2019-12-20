@@ -15,7 +15,7 @@ gen: validate
 		-A gopenapi
 
 run:
-	go run internal/main.go
+	GO111MODULE=on go run internal/main.go
 
 validate:
 	swagger validate ./pkg/swagger/swagger.yml
